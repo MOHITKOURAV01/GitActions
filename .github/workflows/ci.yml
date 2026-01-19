@@ -1,23 +1,24 @@
 name: Standard CI
 
-# Trigger
 on:
   push:
 
 jobs:
   build-test:
     name: Build Test And Deploy
-    runs-on: ubuntu@latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4  
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
       - name: Run lint
-        run : npm run lint
+        run: npm run lint
 
       - name: Run build
         run: npm run build
@@ -27,4 +28,3 @@ jobs:
 
       - name: Run deploy
         run: npm run deploy
-        
