@@ -16,7 +16,9 @@ jobs:
             - name: Run lint
               run: npm run lint
     build:
+
         name: Build
+        needs: lint
         runs-on: ubuntu-latest
         steps:
             - name: checkout latest code
